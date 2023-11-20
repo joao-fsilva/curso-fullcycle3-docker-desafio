@@ -1,2 +1,5 @@
 .idea
 desafio-nginx-node/node/node_modules
+
+/desafio-nginx-node/mysql/*
+!/desafio-nginx-node/mysql/.gitkeep
