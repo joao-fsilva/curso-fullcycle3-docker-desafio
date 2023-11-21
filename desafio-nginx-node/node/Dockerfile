@@ -1,4 +1,11 @@
-FROM node:15
+FROM node:20
+
+ENV DOCKERIZE_VERSION v0.6.1
+
+RUN apt-get update \
+    && apt-get install -y wget \
+    && wget -O - https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz | tar xzf - -C /usr/local/bin \
+    && apt-get autoremove -yqq --purge wget && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/app
 
